@@ -6,12 +6,14 @@ import { FirstPageComponent } from './first-page/first-page.component';
 import { appRoutes } from './routing/routing';
 import { RouterModule } from '@angular/router';
 import { SecondPageComponent } from './second-page/second-page.component';
+import { ThirdPageComponent } from './third-page/third-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstPageComponent,
-    SecondPageComponent
+    SecondPageComponent,
+    ThirdPageComponent
   ],
   imports: [
     BrowserModule,
