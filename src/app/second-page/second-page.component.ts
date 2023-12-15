@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Languages } from '../Models/languages';
+import { TranslationInput } from '../Models/translationInput';
+import { TranslationOutput } from '../Models/translationOutput';
 import { LanguageService } from '../services/language/language.service';
 
 @Component({
@@ -21,6 +23,16 @@ export class SecondPageComponent {
   selectedOptionTo: string = '';
   textAreaFromValue: string = '';
   textAreaToValue: string = '';
+  codeFrom: string = '';
+  codeTo: string = '';
+  translationInput: TranslationInput = { from: '', to: '', inputText: '' };
+  translationOutput: TranslationOutput = {
+    from: '',
+    to: '',
+    inputText: '',
+    translatedText: '',
+  };
+  isLoading: boolean = false;
 
   goToFirstPage() {
     this.router.navigate(['/firstPage']);
@@ -57,10 +69,42 @@ export class SecondPageComponent {
 
   // Function to extract selected values
   extractSelectedValues(): void {
-    console.log('Selected values:');
-    console.log('Dropdown 1:', this.selectedOptionFrom);
-    console.log('Textarea 1:', this.textAreaFromValue);
-    console.log('Dropdown 2:', this.selectedOptionTo);
-    console.log('Textarea 2:', this.textAreaToValue);
+    if (this.selectedOptionFrom) {
+      this.codeFrom = this.languageArray.filter(
+        (e) => e.nameInternational == this.selectedOptionFrom
+      )[0].code;
+    }
+    if (this.selectedOptionTo) {
+      this.codeTo = this.languageArray.filter(
+        (e) => e.nameInternational == this.selectedOptionTo
+      )[0].code;
+    }
+    this.translationInput.from = this.codeFrom;
+    this.translationInput.to = this.codeTo;
+    this.translationInput.inputText = this.textAreaFromValue;
+
+    this.getFromToTranslation(this.translationInput);
+
+    console.log(
+      'Selected values:' +
+        this.translationInput.from +
+        ' : ' +
+        this.translationInput.to
+    );
+  }
+
+  toggleLoading(): void {
+    this.isLoading = !this.isLoading;
+  }
+
+  getFromToTranslation(input: TranslationInput) {
+    this.isLoading = false;
+    this.toggleLoading();
+    this.languageService.getFromToTranslation(input).subscribe((result) => {
+      this.translationOutput = result;
+      console.log(result);
+      this.textAreaToValue = result.translatedText;
+      this.toggleLoading();
+    });
   }
 }

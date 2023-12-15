@@ -1,7 +1,7 @@
 <div class="container mt-4">
   <div class="row">
     <!-- First Column -->
-    <div class="col-md-6">
+    <div class="col-lg-6">
       <div class="form-group">
         <label for="dropdown1">From this language</label>
         <select
@@ -26,7 +26,7 @@
     </div>
 
     <!-- Second Column -->
-    <div class="col-md-6">
+    <div class="col-lg-6">
       <div class="form-group">
         <label for="dropdown2">To this language</label>
         <select
@@ -39,14 +39,17 @@
           </option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group position-relative">
         <label for="textareato">To this text</label>
         <textarea
-          class="form-control"
+          class="form-control read-only"
           id="textareato"
           rows="4"
           [(ngModel)]="textAreaToValue"
-        ></textarea>
+          readonly
+        >
+        </textarea>
+        <div *ngIf="isLoading" class="loading-screen">Loading...</div>
       </div>
     </div>
   </div>
