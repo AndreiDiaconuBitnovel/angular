@@ -1,0 +1,60 @@
+/* app-navbar.component.css */
+
+.navbar {
+  background-color: #8b4513 !important; /* Solid color without gradient */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px; /* Increased padding for a vintage feel */
+}
+
+.navbar a {
+  color: #ffd700; /* Gold color */
+  font-family: "Times New Roman", Times, serif; /* Serif font for a vintage touch */
+  font-size: 18px;
+  font-weight: bold; /* Bold text */
+  text-transform: uppercase; /* Uppercase text */
+  letter-spacing: 1px; /* Slightly increased letter spacing */
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #cd853f; /* Darker gold on hover */
+}
+
+.navbar-buttons {
+  margin-left: auto;
+}
+
+.button {
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+/* Additional vintage styles */
+.btn-success {
+  background-color: #ffd700; /* Gold color */
+  color: #8b4513; /* Saddle Brown text */
+  padding: 10px 15px; /* Padding for the button */
+  margin: 0 10px; /* Margin between buttons */
+}
+
+.btn-success:hover {
+  background-color: #cd853f; /* Darker gold on hover */
+}
+
+.btn-primary {
+  background-color: #ffd700; /* Gold color */
+  color: #8b4513; /* Saddle Brown text */
+  padding: 10px 15px; /* Padding for the button */
+  margin: 0 10px; /* Margin between buttons */
+}
+
+.btn-primary:hover {
+  background-color: #cd853f; /* Darker gold on hover */
+}

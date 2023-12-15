@@ -1,0 +1,39 @@
+/* src/app/welcome/welcome.component.css */
+
+.container {
+  max-width: 1200px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 1.5rem;
+  border: 2px solid #c0c0c0; /* Vintage border color */
+  background-color: #f8f8f8; /* Vintage background color */
+  border-radius: 8px;
+}
+
+.feature-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+h1,
+h4 {
+  font-family: "Times New Roman", Times, serif; /* Vintage font */
+  color: #555; /* Vintage text color */
+}
+
+p {
+  color: #777; /* Vintage text color */
+}

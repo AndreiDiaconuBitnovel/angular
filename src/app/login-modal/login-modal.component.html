@@ -1,0 +1,29 @@
+<!-- login-modal.component.html -->
+
+<div class="modal">
+  <div class="modal-content" (click)="stopPropagation($event)">
+    <button class="close-button" (click)="closeModal()">X</button>
+    <h2>Login</h2>
+    <form (submit)="login()">
+      <label for="username">Username:</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+        required
+      />
+
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+      />
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>

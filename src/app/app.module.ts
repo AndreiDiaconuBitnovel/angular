@@ -7,20 +7,27 @@ import { appRoutes } from './routing/routing';
 import { RouterModule } from '@angular/router';
 import { SecondPageComponent } from './second-page/second-page.component';
 import { ThirdPageComponent } from './third-page/third-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LoginModalComponent } from './login-modal/login-modal.component';
+import { FormsModule } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstPageComponent,
     SecondPageComponent,
-    ThirdPageComponent
+    ThirdPageComponent,
+    NavbarComponent,
+    LoginModalComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

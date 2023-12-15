@@ -1,6 +1,23 @@
-<p>first-page works!</p>
-<button (click)="goToSecondPage()">
-    Go to second page
-</button>
+<!-- src/app/welcome/welcome.component.html -->
 
-<div *ngFor="let item of testDbArray">{{item.name}}</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12 text-center mb-4">
+      <h1>Welcome to Our Website</h1>
+      <p class="lead">Discover the amazing features of our platform.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div
+      class="col-md-4 mb-4"
+      *ngFor="let feature of features; let i = index"
+      (click)="onColumnClick(i)"
+    >
+      <div class="feature-card">
+        <img [src]="feature.imgSrc" alt="{{ feature.title }}" />
+        <h4 class="mt-3">{{ feature.title }}</h4>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
