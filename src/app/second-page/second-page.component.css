@@ -1,0 +1,142 @@
+/* dual-column-component.component.css */
+
+/* Apply a vintage background color */
+.container {
+  /* background-color: #f5f5f5; */
+}
+
+/* Style the form groups */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Style the labels */
+label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Style the textareas */
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+/* Style the dropdowns */
+select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+/* Style the container of the columns */
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Style the columns */
+.col-md-6 {
+  width: 48%; /* Adjust as needed */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Add vintage border */
+.col-md-6 {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Add vintage shadow */
+.col-md-6 {
+  box-shadow: 2px 2px 5px #888888;
+}
+
+/* Add an arrow to the right of the dropdown */
+select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: calc(100% - 30px); /* Adjust as needed to leave space for the arrow */
+  appearance: none; /* Remove default arrow in Firefox */
+  -webkit-appearance: none; /* Remove default arrow in Chrome/Safari */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23555" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-position: right 8px top 50%;
+  background-repeat: no-repeat;
+  background-size: 20px;
+}
+
+/* Style the scrollbar */
+/* Note: This is for WebKit (Chrome, Safari) browsers */
+/* You may need additional styles for other browsers */
+/* Adjust as needed for your design */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+/* dual-column-component.component.css */
+
+/* Style the button */
+.btn-extract-values {
+  background-color: #8b4513; /* Bootstrap primary color */
+  color: #fff; /* Text color */
+  padding: 10px 20px; /* Padding around the text */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Add some border radius */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+/* Hover effect */
+.btn-extract-values:hover {
+  background-color: #ffd700; /* Gold color */
+}
+
+/* dual-column-component.component.css */
+
+/* Style the dropdown selection highlight */
+option {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: calc(100% - 30px);
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23555" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-position: right 8px top 50%;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-color: #fdf5e6; /* Vintage color for the highlight */
+}
+
+select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: calc(100% - 30px);
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23555" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-position: right 8px top 50%;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-color: #fdf5e6; /* Vintage color for the highlight */
+}
+
+/* Style the selected option in the dropdown */
+select option:checked {
+  background-color: #ffdab9; /* Another vintage color for the selected option */
+}

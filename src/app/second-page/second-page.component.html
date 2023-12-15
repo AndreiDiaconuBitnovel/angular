@@ -1,4 +1,60 @@
-<p>second-page works!</p>
-<button (click)="goToFirstPage()">
-    Go to first page
+<div class="container mt-4">
+  <div class="row">
+    <!-- First Column -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="dropdown1">From this language</label>
+        <select
+          class="form-control"
+          id="dropdown1"
+          [(ngModel)]="selectedOptionFrom"
+        >
+          <option *ngFor="let option of dropdownFromOptions" [value]="option">
+            {{ option }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="textareafrom">From this text</label>
+        <textarea
+          class="form-control"
+          id="textareafrom"
+          rows="4"
+          [(ngModel)]="textAreaFromValue"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- Second Column -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="dropdown2">To this language</label>
+        <select
+          class="form-control"
+          id="dropdown2"
+          [(ngModel)]="selectedOptionTo"
+        >
+          <option *ngFor="let option of dropdownToOptions" [value]="option">
+            {{ option }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="textareato">To this text</label>
+        <textarea
+          class="form-control"
+          id="textareato"
+          rows="4"
+          [(ngModel)]="textAreaToValue"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-4">
+    <button class="btn btn-extract-values" (click)="extractSelectedValues()">
+      Extract Selected Values
     </button>
+  </div>
+</div>
+
+<!-- (ngModelChange)="extractSelectedValues()" -->
