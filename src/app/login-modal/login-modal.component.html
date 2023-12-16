@@ -14,8 +14,9 @@
         required
       />
 
-      <label for="email">Email:</label>
+      <label *ngIf="isLogIn" for="email">Email:</label>
       <input
+        *ngIf="isLogIn"
         type="email"
         id="email"
         name="email"
@@ -23,12 +24,13 @@
         required
       />
 
-      <app-camera  (booleanValueChange)="receiveBoolean($event)" (getPicture)="handleImage($event)"></app-camera>
+      <app-camera
+        (booleanValueChange)="receiveBoolean($event)"
+        (getPicture)="handleImage($event)"
+      ></app-camera>
       <img [src]="imageUrl" *ngIf="receivedBoolean && imageUrl" alt="Image" />
 
       <button type="submit">Login</button>
     </form>
-
   </div>
-
 </div>

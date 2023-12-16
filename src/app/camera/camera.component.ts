@@ -29,6 +29,7 @@ export class CameraComponent implements OnInit {
     private authExtensionService: AuthServiceExtensionService
   ) {}
   ngOnInit(): void {
+    console.log()
     WebcamUtil.getAvailableVideoInputs().then(
       (mediaDevices: MediaDeviceInfo[]) => {
         this.isCmaeraExist = mediaDevices && mediaDevices.length > 0;

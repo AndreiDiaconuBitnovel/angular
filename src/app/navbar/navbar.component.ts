@@ -33,7 +33,7 @@ export class NavbarComponent {
   }
 
   onSignUpClick(): void {
-    this.isLogIn=false
+    this.isLogIn=true
     this.isLoginModalOpen = true;
 
   }

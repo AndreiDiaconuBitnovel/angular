@@ -9,7 +9,7 @@ import {WebcamImage} from 'ngx-webcam';
   templateUrl: './login-modal.component.html',
   styleUrls: ['./login-modal.component.css'],
 })
-export class LoginModalComponent {
+export class LoginModalComponent  {
   @Input() isModalOpen: boolean = false;
   @Input() isLogIn: boolean = false;
   @Output() closeModalEvent = new EventEmitter<boolean>();
