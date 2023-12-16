@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { FormsModule } from '@angular/forms';
 import { Component, ViewChild } from '@angular/core';
+import {DEFAULT_TIMEOUT, InterceptorService} from './services/interceptor/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,14 @@ import { Component, ViewChild } from '@angular/core';
     RouterModule.forRoot(appRoutes),
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: DEFAULT_TIMEOUT, useValue: 3000 },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
