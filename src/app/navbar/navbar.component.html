@@ -2,12 +2,13 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-3">
   <a class="navbar-brand" routerLink="/firstPage">Home</a>
-  <a class="navbar-brand" routerLink="/secondPage">Translation</a>
-  <a class="navbar-brand" routerLink="/thirdPage">History</a>
+  <a class="navbar-brand" routerLink="/secondPage" *ngIf="authServiceExtension.isLoggedIn | async" >Translation</a>
+  <a class="navbar-brand" routerLink="/thirdPage" *ngIf="authServiceExtension.isLoggedIn | async" >History</a>
 
   <div class="navbar-buttons ml-auto">
-    <button class="btn btn-success" (click)="openLoginModal()">Login</button>
-    <button class="btn btn-primary" (click)="onSignUpClick()">Sign Up</button>
+    <button class="btn btn-success" (click)="openLoginModal()" >Login</button>
+    <button class="btn btn-primary" (click)="onSignUpClick()" >Sign Up</button>
+    <button class="btn btn-primary" (click)="onLogOutClick()" *ngIf="authServiceExtension.isLoggedIn | async">LogOut</button>
   </div>
 </nav>
 <app-login-modal

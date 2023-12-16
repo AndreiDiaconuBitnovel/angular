@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import {AuthServiceExtensionService} from './services/authServiceExtension/auth-service-extension.service';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +10,17 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'angularProject';
 
-  constructor(   private router: Router) {
+  constructor(  public authServiceExtension: AuthServiceExtensionService, private router: Router) {
     
   }
   goToFirstPage(){
     this.router.navigate(['/firstPage']);
   }
-
+  loggedOut(isLoggedOut:boolean){
+    if(isLoggedOut){
+      this.authServiceExtension.logOut()
+    }
+  }
 
 
 }

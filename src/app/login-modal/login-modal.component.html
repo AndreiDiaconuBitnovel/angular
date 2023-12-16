@@ -14,15 +14,17 @@
         required
       />
 
-      <label for="password">Password:</label>
+      <label for="email">Email:</label>
       <input
-        type="password"
-        id="password"
-        name="password"
-        [(ngModel)]="password"
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="email"
         required
       />
-      <app-camera></app-camera>
+      <img [src]="imageUrl" alt="Image" />
+
+      <app-camera (getPicture)="handleImage($event)"></app-camera>
 
       <button type="submit">Login</button>
     </form>

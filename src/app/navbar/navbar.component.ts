@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
+import {AuthServiceExtensionService} from '../services/authServiceExtension/auth-service-extension.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,8 +9,9 @@ import { LoginModalComponent } from '../login-modal/login-modal.component';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,public authServiceExtension: AuthServiceExtensionService) {}
 
+  @Output() loggedOut = new EventEmitter<boolean>();
   isLoginModalOpen: boolean = false;
 
   openLoginModal() {
@@ -20,7 +22,7 @@ export class NavbarComponent {
     this.isLoginModalOpen = isModalOpen;
   }
 
-  onLogin(credentials: { username: string; password: string }) {
+  onLogin(credentials: { username: string; email: string }) {
     // Handle login logic here
     console.log('Login successful', credentials);
     // Close the modal after handling login
@@ -29,5 +31,9 @@ export class NavbarComponent {
 
   onSignUpClick(): void {
     
+  }
+
+  onLogOutClick():void{
+    this.authServiceExtension.logOut()
   }
 }

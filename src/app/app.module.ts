@@ -36,7 +36,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     WebcamModule,
     BrowserAnimationsModule,
-    MatDialogModule,
+    MatDialogModule
   ],
   providers: [
     { provide: DEFAULT_TIMEOUT, useValue: 3000 },
