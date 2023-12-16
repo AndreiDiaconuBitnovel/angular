@@ -1,0 +1,13 @@
+button {
+    padding: 12px 24px;
+    background-color: #603913; /* Brown color for button */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Times New Roman", serif;
+  }
+  
+  button:hover {
+    background-color: #85521d; /* Slightly darker brown on hover */
+  }

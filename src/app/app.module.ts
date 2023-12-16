@@ -11,13 +11,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { FormsModule } from '@angular/forms';
 import { Component, ViewChild } from '@angular/core';
+import {DEFAULT_TIMEOUT, InterceptorService} from './services/interceptor/interceptor.service';
+import { CameraComponent } from './camera/camera.component';
+import {WebcamModule} from 'ngx-webcam';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ItemModalComponent } from './item-modal/item-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import {
-  DEFAULT_TIMEOUT,
-  InterceptorService,
-} from './services/interceptor/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -27,13 +26,15 @@ import {
     ThirdPageComponent,
     NavbarComponent,
     LoginModalComponent,
-    ItemModalComponent,
+    CameraComponent,
+    ItemModalComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    WebcamModule,
     BrowserAnimationsModule,
     MatDialogModule,
   ],

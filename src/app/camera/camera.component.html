@@ -1,0 +1,36 @@
+<!-- <div *ngIf="isCmaeraExist; else noCameraExist">
+  <div style="text-align: center">
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary" (click)="takeSnapshot()">
+        Take Picture
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="changeWebCame(true)"
+      >
+        Toggle Camera
+      </button>
+      <button type="button" class="btn btn-primary" (click)="onOffWebCame()">
+        Switch camera
+      </button>
+    </div>
+    <webcam
+      [height]="500"
+      [width]="1000"
+      [trigger]="triggerObservable"
+      (imageCapture)="handleImage($event)"
+      *ngIf="showWebcam"
+      [switchCamera]="nextWebcamObservable"
+    ></webcam>
+  </div>
+  <div *ngIf="error.length > 0">
+    <h4>Errors:</h4>
+    <ul *ngFor="let error of errors">
+      <li>{{ error | json }}</li>
+    </ul>
+  </div>
+</div>
+<ng-template #noCameraExist> Camera Device not Available </ng-template> -->
+
+<input type="file" (change)="onFileSelected($event)" />
