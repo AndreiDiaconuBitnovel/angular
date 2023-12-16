@@ -8,12 +8,12 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-image: url("src/assets/vintage-bg.jpg"); /* Adjust the path based on your project structure */
+  /* background-image: url("src/assets/vintage-bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
-  background-color: rgba(141, 37, 37);
+  background-color: #8b4513; */
 }
 @media only screen and (max-width: 767px) {
   body::before {

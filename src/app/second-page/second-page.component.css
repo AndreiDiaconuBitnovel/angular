@@ -175,7 +175,7 @@ textarea {
 
 label {
   background-color: #ffffff; /* Background color */
-  padding: 10px; /* Optional: Add padding for better visibility */
+  padding-bottom: 10px; /* Optional: Add padding for better visibility */
   margin-bottom: 5px;
   border-radius: 5px; /* Optional: Add border-radius for rounded corners */
   display: inline-block; /* Optional: Make the background color only as wide as the text */
