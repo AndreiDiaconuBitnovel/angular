@@ -1,0 +1,62 @@
+/* search-page.component.css */
+
+.container {
+  max-width: 1200px;
+}
+
+.vintage-card {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.vintage-card:hover {
+  transform: scale(1.05);
+}
+
+.card-body {
+  font-family: "Georgia", serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Custom styling for the vintage search bar */
+.search-bar {
+  position: relative;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #f5f5f5;
+  color: #555;
+}
+
+.search-bar button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
