@@ -4,6 +4,7 @@ import { Languages } from '../Models/languages';
 import { TranslationInput } from '../Models/translationInput';
 import { TranslationOutput } from '../Models/translationOutput';
 import { LanguageService } from '../services/language/language.service';
+import { JwtTokenService } from '../services/jwtToken/jwt-token.service';
 
 @Component({
   selector: 'app-second-page',
@@ -13,7 +14,8 @@ import { LanguageService } from '../services/language/language.service';
 export class SecondPageComponent {
   constructor(
     private router: Router,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private jwtTokenService: JwtTokenService
   ) {}
   isMobile: boolean = false;
   languageArray: Languages[] = [] as Languages[];
@@ -47,6 +49,12 @@ export class SecondPageComponent {
   ngOnInit(): void {
     this.getAllLanguages();
     this.checkScreenSize();
+    this.getUserId();
+  }
+
+  getUserId(): void {
+    let temp: string = this.jwtTokenService.getUserId();
+    temp ? (this.translationInput.userId = temp) : null;
   }
 
   checkScreenSize(): void {

@@ -33,7 +33,19 @@ h4 {
   font-family: "Times New Roman", Times, serif; /* Vintage font */
   color: #555; /* Vintage text color */
 }
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
 
 p {
+  font-family: "Times New Roman", Times, serif; /* Vintage font */
   color: #777; /* Vintage text color */
+}
+
+.lead {
+  background-color: #ffffff; /* Background color */
+  padding: 10px; /* Optional: Add padding for better visibility */
+  border-radius: 5px; /* Optional: Add border-radius for rounded corners */
+  display: inline-block; /* Optional: Make the background color only as wide as the text */
 }

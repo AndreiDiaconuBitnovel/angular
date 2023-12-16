@@ -160,8 +160,7 @@ select option:checked {
   font-size: 18px;
 }
 .read-only {
-  color: #777; /* Gray color for read-only text */
-  background-color: #f8f8f8; /* Background color for read-only textarea */
+  background-color: #f8f8f863; /* Background color for read-only textarea */
 }
 
 /* Adjust the width of the dropdowns */
@@ -172,4 +171,12 @@ select {
 /* Ensure the textarea takes the remaining width */
 textarea {
   width: 100%; /* Set the width to 100% to fill the remaining space */
+}
+
+label {
+  background-color: #ffffff; /* Background color */
+  padding: 10px; /* Optional: Add padding for better visibility */
+  margin-bottom: 5px;
+  border-radius: 5px; /* Optional: Add border-radius for rounded corners */
+  display: inline-block; /* Optional: Make the background color only as wide as the text */
 }
