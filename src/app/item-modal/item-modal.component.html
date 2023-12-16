@@ -2,22 +2,19 @@
 
 <div class="modal-content">
   <div class="modal-header">
-    <h5 class="modal-title">{{ data.from }}</h5>
-  </div>
-  <div class="modal-body">
     <div class="content-wrapper">
-      <p>{{ data.inputText }}</p>
+      <h5 class="modal-title">{{ data.from }}</h5>
       <button class="btn btn-vintage" (click)="copyToClipboard(data.inputText)">
         Copy
       </button>
     </div>
   </div>
-  <div class="modal-header">
-    <h5 class="modal-title">{{ data.to }}</h5>
-  </div>
   <div class="modal-body">
+    <p>{{ data.inputText }}</p>
+  </div>
+  <div class="modal-header">
     <div class="content-wrapper">
-      <p>{{ data.translatedText }}</p>
+      <h5 class="modal-title">{{ data.to }}</h5>
       <button
         class="btn btn-vintage"
         (click)="copyToClipboard(data.translatedText)"
@@ -25,5 +22,8 @@
         Copy
       </button>
     </div>
+  </div>
+  <div class="modal-body">
+    <p>{{ data.translatedText }}</p>
   </div>
 </div>

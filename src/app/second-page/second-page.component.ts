@@ -25,7 +25,12 @@ export class SecondPageComponent {
   textAreaToValue: string = '';
   codeFrom: string = '';
   codeTo: string = '';
-  translationInput: TranslationInput = { from: '', to: '', inputText: '' };
+  translationInput: TranslationInput = {
+    from: '',
+    to: '',
+    inputText: '',
+    userId: 'BFE065FC-039D-484F-A4FD-946FABFFBDD5',
+  };
   translationOutput: TranslationOutput = {
     from: '',
     to: '',
