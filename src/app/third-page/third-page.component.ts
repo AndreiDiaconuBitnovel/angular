@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { HistoryInput } from '../Models/historyInput';
 import { LanguageService } from '../services/language/language.service';
 import { FormsModule } from '@angular/forms';
+import { Languages } from '../Models/languages';
+import { TranslationOutputFull } from '../Models/translationOutputFull';
 
 @Component({
   selector: 'app-third-page',
@@ -19,11 +21,12 @@ export class ThirdPageComponent {
   historyInput: HistoryInput = {
     userId: 'BFE065FC-039D-484F-A4FD-946FABFFBDD5',
   };
-  items: TranslationOutput[] = [];
+  items: TranslationOutputFull[] = [];
 
   searchTerm: string = '';
-  filteredItems: TranslationOutput[] = [];
+  filteredItems: TranslationOutputFull[] = [];
   selectedItem: TranslationOutput | null = null;
+  languageArray: Languages[] = [] as Languages[];
 
   constructor(
     private dialog: MatDialog,
@@ -32,7 +35,8 @@ export class ThirdPageComponent {
 
   ngOnInit(): void {
     this.filteredItems = this.items;
-    this.getFromToTranslation(this.historyInput);
+    this.getAllLanguages();
+    // this.getAllHistory(this.historyInput);
   }
 
   filterItems(): void {
@@ -57,11 +61,33 @@ export class ThirdPageComponent {
     this.isLoading = !this.isLoading;
   }
 
-  getFromToTranslation(input: HistoryInput) {
+  getAllLanguages() {
+    this.languageService.getAllLanguagesRecord().subscribe((result) => {
+      this.languageArray = result;
+
+      this.getAllHistory(this.historyInput);
+    });
+  }
+
+  getAllHistory(input: HistoryInput) {
     this.isLoading = false;
     this.toggleLoading();
     this.languageService.getAllHistoryRecord(input).subscribe((result) => {
-      this.items = result;
+      this.items = result.map((x) => {
+        let obj = {} as TranslationOutputFull;
+        obj.from = x.from;
+        obj.to = x.to;
+        obj.inputText = x.inputText;
+        obj.translatedText = x.translatedText;
+        obj.fromLanguage = String(
+          this.languageArray.find((x) => x.code == obj.from)?.nameInternational
+        );
+        obj.toLanguage = String(
+          this.languageArray.find((x) => x.code == obj.to)?.nameInternational
+        );
+        return obj;
+      });
+
       this.filterItems();
       console.log(result);
       this.toggleLoading();
