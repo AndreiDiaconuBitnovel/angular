@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { Languages } from '../Models/languages';
 import { TranslationInput } from '../Models/translationInput';
@@ -15,7 +15,7 @@ export class SecondPageComponent {
     private router: Router,
     private languageService: LanguageService
   ) {}
-
+  isMobile: boolean = false;
   languageArray: Languages[] = [] as Languages[];
   dropdownFromOptions: string[] = [];
   dropdownToOptions: string[] = [];
@@ -34,12 +34,18 @@ export class SecondPageComponent {
   };
   isLoading: boolean = false;
 
-  goToFirstPage() {
-    this.router.navigate(['/firstPage']);
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any): void {
+    this.checkScreenSize();
   }
 
   ngOnInit(): void {
     this.getAllLanguages();
+    this.checkScreenSize();
+  }
+
+  checkScreenSize(): void {
+    this.isMobile = window.innerWidth <= 767; // Adjust the breakpoint as needed
   }
 
   getAllLanguages() {

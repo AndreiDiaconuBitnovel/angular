@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { TranslationOutput } from '../Models/translationOutput';
+import { ItemModalComponent } from '../item-modal/item-modal.component';
+// Import Angular Material modules
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-third-page',
@@ -61,8 +66,9 @@ export class ThirdPageComponent {
 
   searchTerm: string = '';
   filteredItems: TranslationOutput[] = [];
+  selectedItem: TranslationOutput | null = null;
 
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.filteredItems = this.items;
@@ -74,5 +80,15 @@ export class ThirdPageComponent {
         value.toLowerCase().includes(this.searchTerm.toLowerCase())
       )
     );
+  }
+
+  openModal(item: TranslationOutput): void {
+    this.dialog.open(ItemModalComponent, {
+      width: '80%', // Adjust the width based on your preference
+      maxWidth: '800px', // Set a maximum width if needed
+      height: 'auto', // Automatically adjust the height based on the content
+      maxHeight: '80vh', // Set a maximum height if needed
+      data: item,
+    });
   }
 }

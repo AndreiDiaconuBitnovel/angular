@@ -11,6 +11,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { FormsModule } from '@angular/forms';
 import { Component, ViewChild } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ItemModalComponent } from './item-modal/item-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -20,12 +23,15 @@ import { Component, ViewChild } from '@angular/core';
     ThirdPageComponent,
     NavbarComponent,
     LoginModalComponent,
+    ItemModalComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

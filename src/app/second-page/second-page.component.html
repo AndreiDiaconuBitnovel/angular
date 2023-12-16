@@ -19,7 +19,7 @@
         <textarea
           class="form-control"
           id="textareafrom"
-          rows="4"
+          [rows]="isMobile ? 4 : 10"
           [(ngModel)]="textAreaFromValue"
         ></textarea>
       </div>
@@ -44,7 +44,7 @@
         <textarea
           class="form-control read-only"
           id="textareato"
-          rows="4"
+          [rows]="isMobile ? 4 : 10"
           [(ngModel)]="textAreaToValue"
           readonly
         >

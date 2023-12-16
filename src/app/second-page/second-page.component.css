@@ -92,8 +92,8 @@ select {
 
 /* Style the button */
 .btn-extract-values {
-  background-color: #8b4513; /* Bootstrap primary color */
-  color: #fff; /* Text color */
+  background-color: #ffd700; /* Vintage background color */
+  color: #8b4513; /* Text color */
   padding: 10px 20px; /* Padding around the text */
   border: none; /* Remove border */
   border-radius: 4px; /* Add some border radius */
@@ -102,7 +102,8 @@ select {
 
 /* Hover effect */
 .btn-extract-values:hover {
-  background-color: #ffd700; /* Gold color */
+  background-color: #cd853f; /* Darker background color on hover */
+  border-color: #af8552; /* Darker border color on hover */
 }
 
 /* dual-column-component.component.css */
