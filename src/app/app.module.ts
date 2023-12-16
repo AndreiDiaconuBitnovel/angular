@@ -14,6 +14,9 @@ import { Component, ViewChild } from '@angular/core';
 import {DEFAULT_TIMEOUT, InterceptorService} from './services/interceptor/interceptor.service';
 import { CameraComponent } from './camera/camera.component';
 import {WebcamModule} from 'ngx-webcam';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ItemModalComponent } from './item-modal/item-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -24,13 +27,16 @@ import {WebcamModule} from 'ngx-webcam';
     NavbarComponent,
     LoginModalComponent,
     CameraComponent,
+    ItemModalComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    WebcamModule
+    WebcamModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
   ],
   providers: [
     { provide: DEFAULT_TIMEOUT, useValue: 3000 },

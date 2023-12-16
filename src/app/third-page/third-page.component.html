@@ -12,8 +12,12 @@
   </div>
 
   <div class="row">
-    <div *ngFor="let item of filteredItems" class="col-md-4 mb-4">
-      <div class="card vintage-card">
+    <div
+      name="filteredItems"
+      *ngFor="let item of filteredItems"
+      class="col-md-4 mb-4"
+    >
+      <div class="card vintage-card" (click)="openModal(item)">
         <div class="card-body">
           <h5 class="card-title">{{ item.from }}</h5>
           <p class="card-text">{{ item.inputText }}</p>
@@ -22,5 +26,6 @@
         </div>
       </div>
     </div>
+    <div *ngIf="isLoading" class="loading-screen">Loading...</div>
   </div>
 </div>

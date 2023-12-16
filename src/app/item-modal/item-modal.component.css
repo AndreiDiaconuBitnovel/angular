@@ -1,0 +1,60 @@
+/* item-modal.component.css */
+
+/* Bootstrap Modal Styles */
+.modal-content {
+  background-color: #f5f5f5; /* Vintage background color */
+  border-radius: 12px; /* Add border radius */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add box shadow */
+  padding: 30px; /* Add padding */
+}
+
+.modal-header {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 20px; /* Add padding */
+  margin-bottom: 20px; /* Add margin */
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.modal-body {
+  padding: 0; /* Reduce padding to 0 */
+  margin-bottom: 20px; /* Add margin */
+}
+
+.modal-footer {
+  border-top: 2px solid #ddd;
+  padding-top: 20px; /* Add padding */
+  margin-top: 20px; /* Add margin */
+}
+
+/* Custom Vintage Styles */
+h5 {
+  font-size: 28px; /* Adjust font size */
+  color: #333;
+  margin-bottom: 15px; /* Add margin */
+}
+
+p {
+  font-size: 20px; /* Adjust font size */
+  color: #555;
+  margin-bottom: 25px; /* Add margin */
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-vintage {
+  background-color: #ffd700; /* Vintage background color */
+  color: #8b4513; /* Text color */
+  border: 1px solid #cfa670; /* Border color */
+  padding: 8px 16px; /* Adjust padding as needed */
+  border-radius: 4px; /* Add border radius */
+  font-size: 16px; /* Adjust font size */
+}
+
+.btn-vintage:hover {
+  background-color: #cd853f; /* Darker background color on hover */
+  border-color: #af8552; /* Darker border color on hover */
+}
