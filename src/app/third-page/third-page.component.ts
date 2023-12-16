@@ -55,7 +55,7 @@ export class ThirdPageComponent {
     );
   }
 
-  openModal(item: TranslationOutput): void {
+  openModal(item: TranslationOutputFull): void {
     this.dialog.open(ItemModalComponent, {
       width: '80%', // Adjust the width based on your preference
       maxWidth: '800px', // Set a maximum width if needed

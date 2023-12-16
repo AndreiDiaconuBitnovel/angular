@@ -8,6 +8,8 @@ interface Item {
   inputText: string;
   to: string;
   translatedText: string;
+  fromLanguage: string;
+  toLanguage: string;
 }
 
 @Component({
