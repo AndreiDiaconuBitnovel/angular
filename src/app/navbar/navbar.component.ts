@@ -13,8 +13,11 @@ export class NavbarComponent {
 
   @Output() loggedOut = new EventEmitter<boolean>();
   isLoginModalOpen: boolean = false;
+  isLogIn: boolean = true;
+  
 
   openLoginModal() {
+    this.isLogIn=false;
     this.isLoginModalOpen = true;
   }
 
@@ -30,7 +33,9 @@ export class NavbarComponent {
   }
 
   onSignUpClick(): void {
-    
+    this.isLogIn=false
+    this.isLoginModalOpen = true;
+
   }
 
   onLogOutClick():void{

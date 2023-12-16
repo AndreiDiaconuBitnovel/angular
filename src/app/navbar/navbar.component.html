@@ -13,6 +13,7 @@
 </nav>
 <app-login-modal
   [isModalOpen]="isLoginModalOpen"
+  [isLogIn]="isLogIn"
   (closeModalEvent)="closeModalHandler($event)"
   *ngIf="isLoginModalOpen"
   (loginEvent)="onLogin($event)"

@@ -14,11 +14,11 @@ export class CameraComponent implements OnInit {
   isCmaeraExist: boolean = true;
   showWebcam: boolean = true;
   @Output() getPicture = new EventEmitter<WebcamImage>();
+  @Output() booleanValueChange = new EventEmitter<boolean>();
 
   imageUrl:string=''
 
   errors: WebcamInitError[] = [];
-
   private trigger: Subject<void> = new Subject<void>();
   private nextWebcam: Subject<boolean | string> = new Subject<
     boolean | string
@@ -37,11 +37,17 @@ export class CameraComponent implements OnInit {
   }
 
   takeSnapshot():void{
+    this.booleanValueChange.emit(!this.showWebcam)
     this.trigger.next()
   }
 
   onOffWebCame(){
+    console.log('initial value '+this.showWebcam)
     this.showWebcam=!this.showWebcam
+    this.booleanValueChange.emit(!this.showWebcam)
+    console.log()
+    console.log('final value '+this.showWebcam)
+
   }
 
   handleInitError(error:WebcamInitError){
@@ -53,8 +59,11 @@ export class CameraComponent implements OnInit {
   }
 
   handleImage(webcamImage:WebcamImage){
+    this.booleanValueChange.emit(this.showWebcam)
+
     this.getPicture.emit(webcamImage)
     this.showWebcam=false
+
   }
 
    get triggerObservable():Observable<void>{

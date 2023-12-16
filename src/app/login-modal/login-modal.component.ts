@@ -11,6 +11,7 @@ import {WebcamImage} from 'ngx-webcam';
 })
 export class LoginModalComponent {
   @Input() isModalOpen: boolean = false;
+  @Input() isLogIn: boolean = false;
   @Output() closeModalEvent = new EventEmitter<boolean>();
   @Output() loginEvent = new EventEmitter<{
     username: string;
@@ -33,7 +34,10 @@ export class LoginModalComponent {
   }
 
   login() {
-    this.loginEvent.emit({ username: this.username, email: this.email });
+    console.log('log in pressed')
+    console.log(this.username)
+    console.log(this.email)
+    //this.loginEvent.emit({ username: this.username, email: this.email });
   }
 
   stopPropagation(event: Event) {
@@ -41,6 +45,15 @@ export class LoginModalComponent {
   }
 
   webcamImage:WebcamImage|undefined
+
+  receivedBoolean: boolean= false;
+
+  receiveBoolean(value: boolean): void {
+    if(value==true){
+      this.imageUrl=''
+    }
+    this.receivedBoolean = value;
+  }
 
   handleImage(webcamImage:WebcamImage){
     console.log(webcamImage.imageAsDataUrl)

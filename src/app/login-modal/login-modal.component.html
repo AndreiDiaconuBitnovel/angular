@@ -22,9 +22,9 @@
         [(ngModel)]="email"
         required
       />
-      <img [src]="imageUrl" alt="Image" />
 
-      <app-camera (getPicture)="handleImage($event)"></app-camera>
+      <app-camera  (booleanValueChange)="receiveBoolean($event)" (getPicture)="handleImage($event)"></app-camera>
+      <img [src]="imageUrl" *ngIf="receivedBoolean && imageUrl" alt="Image" />
 
       <button type="submit">Login</button>
     </form>

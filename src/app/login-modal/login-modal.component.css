@@ -17,8 +17,8 @@
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-  width: 600px; /* Double the size: 300px * 2 */
-  height: 325px; /* Double the size: 300px * 2 */
+  width: auto; /* Double the size: 300px * 2 */
+  height: 100%; /* Double the size: 300px * 2 */
 }
 
 .close-button {
