@@ -28,6 +28,6 @@ export class NavbarComponent {
   }
 
   onSignUpClick(): void {
-    this.authService.signUp();
+    
   }
 }

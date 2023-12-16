@@ -12,6 +12,8 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
 import { FormsModule } from '@angular/forms';
 import { Component, ViewChild } from '@angular/core';
 import {DEFAULT_TIMEOUT, InterceptorService} from './services/interceptor/interceptor.service';
+import { CameraComponent } from './camera/camera.component';
+import {WebcamModule} from 'ngx-webcam';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import {DEFAULT_TIMEOUT, InterceptorService} from './services/interceptor/interc
     ThirdPageComponent,
     NavbarComponent,
     LoginModalComponent,
+    CameraComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    WebcamModule
   ],
   providers: [
     { provide: DEFAULT_TIMEOUT, useValue: 3000 },
