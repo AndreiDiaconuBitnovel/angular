@@ -35,5 +35,6 @@ h4 {
 }
 
 p {
+  font-family: "Times New Roman", Times, serif; /* Vintage font */
   color: #777; /* Vintage text color */
 }

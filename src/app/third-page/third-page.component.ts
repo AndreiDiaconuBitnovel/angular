@@ -10,6 +10,7 @@ import { LanguageService } from '../services/language/language.service';
 import { FormsModule } from '@angular/forms';
 import { Languages } from '../Models/languages';
 import { TranslationOutputFull } from '../Models/translationOutputFull';
+import { JwtTokenService } from '../services/jwtToken/jwt-token.service';
 
 @Component({
   selector: 'app-third-page',
@@ -30,13 +31,20 @@ export class ThirdPageComponent {
 
   constructor(
     private dialog: MatDialog,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private jwtTokenService: JwtTokenService
   ) {}
 
   ngOnInit(): void {
     this.filteredItems = this.items;
     this.getAllLanguages();
-    // this.getAllHistory(this.historyInput);
+    this.getUserId();
+  }
+
+  getUserId(): void {
+    let temp: string = this.jwtTokenService.getUserId();
+    temp ? (this.historyInput.userId = temp) : null;
+    console.log(this.historyInput.userId);
   }
 
   filterItems(): void {
