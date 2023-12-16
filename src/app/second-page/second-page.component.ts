@@ -1,5 +1,4 @@
 import { Component, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
 import { Languages } from '../Models/languages';
 import { TranslationInput } from '../Models/translationInput';
 import { TranslationOutput } from '../Models/translationOutput';
@@ -13,10 +12,10 @@ import { JwtTokenService } from '../services/jwtToken/jwt-token.service';
 })
 export class SecondPageComponent {
   constructor(
-    private router: Router,
     private languageService: LanguageService,
     private jwtTokenService: JwtTokenService
   ) {}
+
   isMobile: boolean = false;
   languageArray: Languages[] = [] as Languages[];
   dropdownFromOptions: string[] = [];
@@ -31,7 +30,7 @@ export class SecondPageComponent {
     from: '',
     to: '',
     inputText: '',
-    userId: 'BFE065FC-039D-484F-A4FD-946FABFFBDD5',
+    userId: '',
   };
   translationOutput: TranslationOutput = {
     from: '',
@@ -58,7 +57,7 @@ export class SecondPageComponent {
   }
 
   checkScreenSize(): void {
-    this.isMobile = window.innerWidth <= 767; // Adjust the breakpoint as needed
+    this.isMobile = window.innerWidth <= 767;
   }
 
   getAllLanguages() {
@@ -70,23 +69,17 @@ export class SecondPageComponent {
       });
       this.populateDropdownFrom(tempArray);
       this.populateDropdownTo(tempArray);
-      console.log(this.languageArray);
     });
   }
 
-  // Method to populate dropdown 1 options
   populateDropdownFrom(array: string[]) {
-    // Replace this with your actual data source or API call
     this.dropdownFromOptions = array;
   }
 
-  // Method to populate dropdown 2 options
   populateDropdownTo(array: string[]) {
-    // Replace this with your actual data source or API call
     this.dropdownToOptions = array;
   }
 
-  // Function to extract selected values
   extractSelectedValues(): void {
     if (this.selectedOptionFrom) {
       this.codeFrom = this.languageArray.filter(
@@ -103,13 +96,6 @@ export class SecondPageComponent {
     this.translationInput.inputText = this.textAreaFromValue;
 
     this.getFromToTranslation(this.translationInput);
-
-    console.log(
-      'Selected values:' +
-        this.translationInput.from +
-        ' : ' +
-        this.translationInput.to
-    );
   }
 
   toggleLoading(): void {
@@ -121,7 +107,6 @@ export class SecondPageComponent {
     this.toggleLoading();
     this.languageService.getFromToTranslation(input).subscribe((result) => {
       this.translationOutput = result;
-      console.log(result);
       this.textAreaToValue = result.translatedText;
       this.toggleLoading();
     });
