@@ -76,25 +76,4 @@ export class CameraComponent implements OnInit {
     return this.nextWebcam.asObservable();
   }
 
-  onFileSelected(event: any): void {
-    const file: File = event.target.files[0];
-    // this.authService.register(file,'usernamePuternic', 'andrei.diaconu@bitnovel.com').subscribe({
-    //   next: (res) => {
-    //     console.log(res)
-    //   },
-    //   error: (err) => {
-    //     console.log('Error Inserting Document :', err);
-    //   },
-    // });
-
-    this.authExtensionService.login(file, 'usernamePuternic').subscribe({
-      next: (res) => {
-        console.log('worked')
-        console.log(res);
-      },
-      error: (err) => {
-        console.log('Error :', err);
-      },
-    });
-  }
 }

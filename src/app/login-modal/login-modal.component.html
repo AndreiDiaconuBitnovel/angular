@@ -3,8 +3,12 @@
 <div class="modal">
   <div class="modal-content" (click)="stopPropagation($event)">
     <button class="close-button" (click)="closeModal()">X</button>
-    <h2>Login</h2>
+    <h2 *ngIf="!isSignUp">Login</h2>
+    <h2 *ngIf="isSignUp">SignUp</h2>
+    <h1 class="redFlag" *ngIf="showError">{{errorMessaje}}</h1>
     <form (submit)="login()">
+      <button type="submit">Login</button>
+
       <label for="username">Username:</label>
       <input
         type="text"
@@ -14,9 +18,9 @@
         required
       />
 
-      <label *ngIf="isLogIn" for="email">Email:</label>
+      <label *ngIf="isSignUp" for="email">Email:</label>
       <input
-        *ngIf="isLogIn"
+        *ngIf="isSignUp"
         type="email"
         id="email"
         name="email"
@@ -30,7 +34,6 @@
       ></app-camera>
       <img [src]="imageUrl" *ngIf="receivedBoolean && imageUrl" alt="Image" />
 
-      <button type="submit">Login</button>
     </form>
   </div>
 </div>

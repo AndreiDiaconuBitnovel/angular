@@ -70,3 +70,7 @@ button {
 button:hover {
   background-color: #85521d; /* Slightly darker brown on hover */
 }
+
+.redFlag{
+  color:red;
+}

@@ -119,11 +119,21 @@ export class SecondPageComponent {
   getFromToTranslation(input: TranslationInput) {
     this.isLoading = false;
     this.toggleLoading();
-    this.languageService.getFromToTranslation(input).subscribe((result) => {
-      this.translationOutput = result;
-      console.log(result);
-      this.textAreaToValue = result.translatedText;
-      this.toggleLoading();
-    });
+    this.languageService.getFromToTranslation(input).
+    subscribe({
+        next: (result) => {
+          this.translationOutput = result;
+          console.log(result);
+          this.textAreaToValue = result.translatedText;
+          this.toggleLoading();
+        },
+        error: (err) => {
+          this.textAreaToValue = 'Language is not supported, try another combination!';
+          this.toggleLoading();
+        },
+      });
+    
+    
+    
   }
 }
