@@ -26,7 +26,6 @@ export class AuthServiceExtensionService {
   login(file:File, username:string) {
     return this.authenticationService.login(file, username).pipe(
       tap((response: JwtAuth) => {
-        console.log(response)
         if (response.isSuccessful === true) {
           this._isLoggedIn.next(true);
           localStorage.setItem('jwtToken', response.token);

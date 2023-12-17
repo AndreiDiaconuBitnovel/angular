@@ -29,7 +29,6 @@ export class CameraComponent implements OnInit {
     private authExtensionService: AuthServiceExtensionService
   ) {}
   ngOnInit(): void {
-    console.log()
     WebcamUtil.getAvailableVideoInputs().then(
       (mediaDevices: MediaDeviceInfo[]) => {
         this.isCmaeraExist = mediaDevices && mediaDevices.length > 0;
@@ -43,11 +42,8 @@ export class CameraComponent implements OnInit {
   }
 
   onOffWebCame(){
-    console.log('initial value '+this.showWebcam)
     this.showWebcam=!this.showWebcam
     this.booleanValueChange.emit(!this.showWebcam)
-    console.log()
-    console.log('final value '+this.showWebcam)
 
   }
 

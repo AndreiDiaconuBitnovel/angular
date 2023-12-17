@@ -1,19 +1,24 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Languages } from '../Models/languages';
 import { TranslationInput } from '../Models/translationInput';
 import { TranslationOutput } from '../Models/translationOutput';
 import { LanguageService } from '../services/language/language.service';
 import { JwtTokenService } from '../services/jwtToken/jwt-token.service';
-
+import {AuthServiceExtensionService} from '../services/authServiceExtension/auth-service-extension.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-second-page',
   templateUrl: './second-page.component.html',
   styleUrls: ['./second-page.component.css'],
 })
-export class SecondPageComponent {
+export class SecondPageComponent implements OnInit {
+  isLogedIn:boolean=false;
   constructor(
+    public authServiceExtension: AuthServiceExtensionService,
     private languageService: LanguageService,
-    private jwtTokenService: JwtTokenService
+    private jwtTokenService: JwtTokenService,
+    private router: Router,
+
   ) {}
 
   isMobile: boolean = false;
@@ -46,6 +51,10 @@ export class SecondPageComponent {
   }
 
   ngOnInit(): void {
+    this.authServiceExtension.isLoggedIn.subscribe(x=>this.isLogedIn=x)
+    if(!this.isLogedIn){
+      this.router.navigate(['/firstPage']);
+    }
     this.getAllLanguages();
     this.checkScreenSize();
     this.getUserId();
@@ -109,7 +118,6 @@ export class SecondPageComponent {
     subscribe({
         next: (result) => {
           this.translationOutput = result;
-          console.log(result);
           this.textAreaToValue = result.translatedText;
           this.toggleLoading();
         },

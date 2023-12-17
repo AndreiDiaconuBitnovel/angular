@@ -41,7 +41,7 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     NgxSpinnerModule
   ],
   providers: [
-    { provide: DEFAULT_TIMEOUT, useValue: 3000 },
+    { provide: DEFAULT_TIMEOUT, useValue: 30000 },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,

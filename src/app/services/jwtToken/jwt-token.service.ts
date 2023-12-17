@@ -11,6 +11,9 @@ export class JwtTokenService {
   getUserId(): string {
     const token = localStorage.getItem('jwtToken') || '';
     const tokenInfo = this.getDecodedAccessToken(token); // decode token
+    if(!tokenInfo){
+      return ''
+    }
     const role =
       tokenInfo['userId']; // get userId
     return role;

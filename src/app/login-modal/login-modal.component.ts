@@ -4,6 +4,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { WebcamImage } from 'ngx-webcam';
 import { AuthService } from '../services/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthServiceExtensionService } from '../services/authServiceExtension/auth-service-extension.service';
 
 @Component({
@@ -29,6 +30,7 @@ export class LoginModalComponent {
    *
    */
   constructor(
+    private spinner: NgxSpinnerService,
     private sanitizer: DomSanitizer,
     private authService: AuthService,
     private authExtensionService: AuthServiceExtensionService
@@ -42,7 +44,6 @@ export class LoginModalComponent {
   login() {
     this.errorMessaje = '';
     this.showError = false;
-    return
     if (this.imageUrl == undefined || this.imageUrl == '' || !this.imageUrl) {
       this.errorMessaje += ' Please insert an image!';
       this.showError = true;
@@ -63,22 +64,30 @@ export class LoginModalComponent {
       const binaryData = this.decodeBase64(this.webcamImage!.imageAsBase64);
       const blob = new Blob([binaryData], { type: 'image/jpg' });
       const file = new File([blob], 'image.jpg', { type: 'image/jpg' });
-
+      this.spinner.show();
       this.authService.register(file, this.username, this.email).subscribe({
         next: (res) => {
           if (res.isSuccessful == true) {
             this.authExtensionService.login(file, this.username).subscribe({
               next: (res) => {
-                console.log(res);
+                if(res.isSuccessful){
+                this.spinner.hide();
+                  window.location.reload();
+                }
               },
               error: (err) => {
-                console.log('Error Inserting Document :', err);
+                this.spinner.hide();
               },
             });
           }
+          else{
+            this.errorMessaje += res.errors[0];
+            this.showError = true;
+            this.spinner.hide();
+          }
         },
         error: (err) => {
-          console.log('Error Inserting Document :', err);
+          this.spinner.hide();
         },
       });
     }
@@ -86,13 +95,21 @@ export class LoginModalComponent {
       const binaryData = this.decodeBase64(this.webcamImage!.imageAsBase64);
       const blob = new Blob([binaryData], { type: 'image/jpg' });
       const file = new File([blob], 'image.jpg', { type: 'image/jpg' });
+      this.spinner.show();
 
       this.authExtensionService.login(file, this.username).subscribe({
         next: (res) => {
-          console.log(res);
+          if(res.isSuccessful){
+            window.location.reload();
+          }
+          else{
+            this.errorMessaje += res.errors[0];
+            this.showError = true;
+          }
+          this.spinner.hide();
         },
         error: (err) => {
-          console.log('Error Inserting Document :', err);
+          this.spinner.hide();
         },
       });
     }
@@ -126,7 +143,6 @@ export class LoginModalComponent {
   }
 
   handleImage(webcamImage: WebcamImage) {
-
     this.imageUrl = `data:image/png;base64,${webcamImage.imageAsBase64}`; // this.webcamImage?.imageAsDataUrl;
     this.sanitizer.bypassSecurityTrustUrl(this.imageUrl!);
     this.webcamImage = webcamImage;

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslationOutput } from '../Models/translationOutput';
 import { ItemModalComponent } from '../item-modal/item-modal.component';
@@ -7,13 +7,14 @@ import { LanguageService } from '../services/language/language.service';
 import { Languages } from '../Models/languages';
 import { TranslationOutputFull } from '../Models/translationOutputFull';
 import { JwtTokenService } from '../services/jwtToken/jwt-token.service';
-
+import { AuthServiceExtensionService } from '../services/authServiceExtension/auth-service-extension.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-third-page',
   templateUrl: './third-page.component.html',
   styleUrls: ['./third-page.component.css'],
 })
-export class ThirdPageComponent {
+export class ThirdPageComponent implements OnInit {
   isLoading: boolean = false;
   historyInput: HistoryInput = {
     userId: '',
@@ -24,17 +25,25 @@ export class ThirdPageComponent {
   filteredItems: TranslationOutputFull[] = [];
   selectedItem: TranslationOutput | null = null;
   languageArray: Languages[] = [] as Languages[];
-
+  isLogedIn: boolean = false;
   constructor(
+    private router: Router,
+    public authServiceExtension: AuthServiceExtensionService,
     private dialog: MatDialog,
     private languageService: LanguageService,
     private jwtTokenService: JwtTokenService
   ) {}
 
   ngOnInit(): void {
-    this.filteredItems = this.items;
-    this.getAllLanguages();
-    this.getUserId();
+    this.authServiceExtension.isLoggedIn.subscribe((x) => (this.isLogedIn = x));
+    if (!this.isLogedIn) {
+      this.router.navigate(['/firstPage']);
+    }
+    if (this.isLogedIn) {
+      this.filteredItems = this.items;
+      this.getAllLanguages();
+      this.getUserId();
+    }
   }
 
   getUserId(): void {

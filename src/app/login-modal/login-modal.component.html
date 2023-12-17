@@ -1,5 +1,7 @@
 <!-- login-modal.component.html -->
-
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-spin-clockwise" [fullScreen]="true">
+  <p style="color: white"> Wait a minute </p>
+</ngx-spinner>
 <div class="modal">
   <div class="modal-content" (click)="stopPropagation($event)">
     <button class="close-button" (click)="closeModal()">X</button>

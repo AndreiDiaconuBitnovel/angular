@@ -6,8 +6,8 @@
   <a class="navbar-brand" routerLink="/thirdPage" *ngIf="authServiceExtension.isLoggedIn | async" >History</a>
 
   <div class="navbar-buttons ml-auto">
-    <button class="btn btn-success" (click)="openLoginModal()" >Login</button>
-    <button class="btn btn-primary" (click)="onSignUpClick()" >Sign Up</button>
+    <button class="btn btn-success" (click)="openLoginModal()" *ngIf='!isLogedIn' >Login</button>
+    <button class="btn btn-primary" (click)="onSignUpClick()"  *ngIf='!isLogedIn'>Sign Up</button>
     <button class="btn btn-primary" (click)="onLogOutClick()" *ngIf="authServiceExtension.isLoggedIn | async">LogOut</button>
   </div>
 </nav>
