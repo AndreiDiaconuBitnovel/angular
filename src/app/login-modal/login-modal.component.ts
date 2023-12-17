@@ -42,10 +42,7 @@ export class LoginModalComponent {
   login() {
     this.errorMessaje = '';
     this.showError = false;
-    console.log('log in pressed');
-    console.log(this.username);
-    console.log(this.email);
-    console.log(this.imageUrl);
+    return
     if (this.imageUrl == undefined || this.imageUrl == '' || !this.imageUrl) {
       this.errorMessaje += ' Please insert an image!';
       this.showError = true;
@@ -129,12 +126,9 @@ export class LoginModalComponent {
   }
 
   handleImage(webcamImage: WebcamImage) {
-    console.log(webcamImage.imageAsDataUrl);
-    console.log(webcamImage.imageAsBase64);
 
     this.imageUrl = `data:image/png;base64,${webcamImage.imageAsBase64}`; // this.webcamImage?.imageAsDataUrl;
     this.sanitizer.bypassSecurityTrustUrl(this.imageUrl!);
     this.webcamImage = webcamImage;
-    console.log(this.webcamImage);
   }
 }

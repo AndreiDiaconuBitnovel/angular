@@ -17,6 +17,7 @@ import {WebcamModule} from 'ngx-webcam';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ItemModalComponent } from './item-modal/item-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     WebcamModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxSpinnerModule
   ],
   providers: [
     { provide: DEFAULT_TIMEOUT, useValue: 3000 },

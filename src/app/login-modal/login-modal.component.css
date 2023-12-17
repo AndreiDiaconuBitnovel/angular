@@ -74,3 +74,11 @@ button:hover {
 .redFlag{
   color:red;
 }
+
+.imgSmall{
+  height: 285px;
+  width: 360px;
+  padding: 30px;
+  margin-top: 8px;
+  transform: scaleX(-1);
+}

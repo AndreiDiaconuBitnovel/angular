@@ -46,6 +46,7 @@ export class FirstPageComponent {
         this.router.navigate(['/secondPage']);
         break;
       case 1:
+        if(1==1)
         this.router.navigate(['/secondPage']);
         break;
       case 2:
