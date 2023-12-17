@@ -1,5 +1,3 @@
-/* search-page.component.css */
-
 .container {
   max-width: 1200px;
 }
@@ -35,7 +33,6 @@
   text-overflow: ellipsis;
 }
 
-/* Custom styling for the vintage search bar */
 .search-bar {
   position: relative;
 }

@@ -8,15 +8,4 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  /* background-image: url("src/assets/vintage-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-color: #8b4513; */
-}
-@media only screen and (max-width: 767px) {
-  body::before {
-    background-attachment: center top; /* Optional: Prevent background scrolling on mobile */
-  }
 }

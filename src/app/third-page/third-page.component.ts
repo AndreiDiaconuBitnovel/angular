@@ -2,12 +2,8 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslationOutput } from '../Models/translationOutput';
 import { ItemModalComponent } from '../item-modal/item-modal.component';
-// Import Angular Material modules
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
 import { HistoryInput } from '../Models/historyInput';
 import { LanguageService } from '../services/language/language.service';
-import { FormsModule } from '@angular/forms';
 import { Languages } from '../Models/languages';
 import { TranslationOutputFull } from '../Models/translationOutputFull';
 import { JwtTokenService } from '../services/jwtToken/jwt-token.service';
@@ -20,7 +16,7 @@ import { JwtTokenService } from '../services/jwtToken/jwt-token.service';
 export class ThirdPageComponent {
   isLoading: boolean = false;
   historyInput: HistoryInput = {
-    userId: 'BFE065FC-039D-484F-A4FD-946FABFFBDD5',
+    userId: '',
   };
   items: TranslationOutputFull[] = [];
 
@@ -44,7 +40,6 @@ export class ThirdPageComponent {
   getUserId(): void {
     let temp: string = this.jwtTokenService.getUserId();
     temp ? (this.historyInput.userId = temp) : null;
-    console.log(this.historyInput.userId);
   }
 
   filterItems(): void {
@@ -57,10 +52,10 @@ export class ThirdPageComponent {
 
   openModal(item: TranslationOutputFull): void {
     this.dialog.open(ItemModalComponent, {
-      width: '80%', // Adjust the width based on your preference
-      maxWidth: '800px', // Set a maximum width if needed
-      height: 'auto', // Automatically adjust the height based on the content
-      maxHeight: '80vh', // Set a maximum height if needed
+      width: '80%',
+      maxWidth: '800px',
+      height: 'auto',
+      maxHeight: '80vh',
       data: item,
     });
   }
@@ -97,7 +92,6 @@ export class ThirdPageComponent {
       });
 
       this.filterItems();
-      console.log(result);
       this.toggleLoading();
     });
   }

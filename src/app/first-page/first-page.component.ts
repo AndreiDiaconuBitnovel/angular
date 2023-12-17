@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TestDbDto } from '../Models/testDb';
-import { TestDbService } from '../services/test-db.service';
 
 interface Feature {
   imgSrc: string;
@@ -14,7 +13,7 @@ interface Feature {
   templateUrl: './first-page.component.html',
   styleUrls: ['./first-page.component.css'],
 })
-export class FirstPageComponent implements OnInit {
+export class FirstPageComponent {
   title: string = 'Welcome to Translation Kingdom';
   bigDescription: string =
     'Discover the amazing features of translation that transcends the realm of international languages! (up to 77 languages)';
@@ -39,15 +38,9 @@ export class FirstPageComponent implements OnInit {
         'Any translation you make is stored in our database, so it can be accessed at any time. You know, in case your dog ate your homework!',
     },
   ];
-  constructor(private router: Router, private testDbService: TestDbService) {}
-
-  ngOnInit(): void {
-    this.getAllTestDbData();
-  }
+  constructor(private router: Router) {}
 
   onColumnClick(columnNumber: number): void {
-    console.log(`Column ${columnNumber} clicked`);
-    // Add your logic here for the click event
     switch (columnNumber) {
       case 0:
         this.router.navigate(['/secondPage']);
@@ -59,16 +52,5 @@ export class FirstPageComponent implements OnInit {
         this.router.navigate(['/thirdPage']);
         break;
     }
-  }
-
-  goToSecondPage() {
-    this.router.navigate(['/secondPage']);
-  }
-
-  getAllTestDbData() {
-    this.testDbService.getAllTestDbRecord().subscribe((result) => {
-      this.testDbArray = result;
-      console.log(this.testDbArray);
-    });
   }
 }

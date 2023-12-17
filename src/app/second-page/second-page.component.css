@@ -1,23 +1,13 @@
-/* dual-column-component.component.css */
-
-/* Apply a vintage background color */
-/* .container {
-  background-color: #f5f5f5;
-} */
-
-/* Style the form groups */
 .form-group {
   margin-bottom: 20px;
 }
 
-/* Style the labels */
 label {
   font-size: 16px;
   font-weight: bold;
   color: #555;
 }
 
-/* Style the textareas */
 textarea {
   padding: 10px;
   border: 1px solid #ccc;
@@ -25,7 +15,6 @@ textarea {
   width: 100%;
 }
 
-/* Style the dropdowns */
 select {
   padding: 8px;
   border: 1px solid #ccc;
@@ -33,48 +22,39 @@ select {
   width: 100%;
 }
 
-/* Style the container of the columns */
 .row {
   display: flex;
   justify-content: space-between;
 }
 
-/* Style the columns */
 .col-md-6 {
-  width: 48%; /* Adjust as needed */
+  width: 48%;
   padding: 10px;
   box-sizing: border-box;
 }
 
-/* Add vintage border */
 .col-md-6 {
   border: 1px solid #ccc;
   border-radius: 8px;
 }
 
-/* Add vintage shadow */
 .col-md-6 {
   box-shadow: 2px 2px 5px #888888;
 }
 
-/* Add an arrow to the right of the dropdown */
 select {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: calc(100% - 30px); /* Adjust as needed to leave space for the arrow */
-  appearance: none; /* Remove default arrow in Firefox */
-  -webkit-appearance: none; /* Remove default arrow in Chrome/Safari */
+  width: calc(100% - 30px);
+  appearance: none;
+  -webkit-appearance: none;
   background-image: url('data:image/svg+xml;utf8,<svg fill="%23555" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
   background-position: right 8px top 50%;
   background-repeat: no-repeat;
   background-size: 20px;
 }
 
-/* Style the scrollbar */
-/* Note: This is for WebKit (Chrome, Safari) browsers */
-/* You may need additional styles for other browsers */
-/* Adjust as needed for your design */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -88,27 +68,21 @@ select {
   background-color: #f5f5f5;
   border-radius: 8px;
 }
-/* dual-column-component.component.css */
 
-/* Style the button */
 .btn-extract-values {
-  background-color: #ffd700; /* Vintage background color */
-  color: #8b4513; /* Text color */
-  padding: 10px 20px; /* Padding around the text */
-  border: none; /* Remove border */
-  border-radius: 4px; /* Add some border radius */
-  cursor: pointer; /* Change cursor on hover */
+  background-color: #ffd700;
+  color: #8b4513;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-/* Hover effect */
 .btn-extract-values:hover {
-  background-color: #cd853f; /* Darker background color on hover */
-  border-color: #af8552; /* Darker border color on hover */
+  background-color: #cd853f;
+  border-color: #af8552;
 }
 
-/* dual-column-component.component.css */
-
-/* Style the dropdown selection highlight */
 option {
   padding: 8px;
   border: 1px solid #ccc;
@@ -120,7 +94,7 @@ option {
   background-position: right 8px top 50%;
   background-repeat: no-repeat;
   background-size: 20px;
-  background-color: #fdf5e6; /* Vintage color for the highlight */
+  background-color: #fdf5e6;
 }
 
 select {
@@ -134,49 +108,41 @@ select {
   background-position: right 8px top 50%;
   background-repeat: no-repeat;
   background-size: 20px;
-  background-color: #fdf5e6; /* Vintage color for the highlight */
+  background-color: #fdf5e6;
 }
 
-/* Style the selected option in the dropdown */
 select option:checked {
-  background-color: #ffdab9; /* Another vintage color for the selected option */
+  background-color: #ffdab9;
 }
-/* Style the loading screen */
+
 .loading-screen {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.8
-  ); /* Semi-transparent white background */
+  background-color: rgba(255, 255, 255, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 18px;
 }
 .read-only {
-  background-color: #f8f8f863; /* Background color for read-only textarea */
+  background-color: #14131318;
 }
 
-/* Adjust the width of the dropdowns */
 select {
-  width: 33%; /* Set the width to 33% */
+  width: 33%;
 }
 
-/* Ensure the textarea takes the remaining width */
 textarea {
-  width: 100%; /* Set the width to 100% to fill the remaining space */
+  width: 100%;
 }
 
 label {
-  background-color: #ffffff; /* Background color */
-  padding-bottom: 10px; /* Optional: Add padding for better visibility */
+  background-color: #ffffff;
+  padding-bottom: 10px;
   margin-bottom: 5px;
-  border-radius: 5px; /* Optional: Add border-radius for rounded corners */
-  display: inline-block; /* Optional: Make the background color only as wide as the text */
+  border-radius: 5px;
+  display: inline-block;
 }
